@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
+  after_save :update_catalogs_info
 
   belongs_to :job
 
@@ -41,7 +42,11 @@ class Person < ActiveRecord::Base
   protected
 
   def job_id_enum
-    Job.all.map {|c| [c.name, c.id]}
+    Job.all.map {|j| [j.name, j.id]}
+  end
+
+  def update_catalogs_info
+    self.catalogs.each {|c| c.save }
   end
 
 end

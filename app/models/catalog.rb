@@ -1,4 +1,5 @@
 class Catalog < ActiveRecord::Base
+  after_save :update_pictures_info
 
   belongs_to :person
 
@@ -40,6 +41,10 @@ class Catalog < ActiveRecord::Base
 
   def person_id_enum
     Person.all.map {|c| ["#{c.job.name} - #{c.name}", c.id] }
+  end
+
+  def update_pictures_info
+    self.pictures.each {|p| p.save}
   end
 
 end

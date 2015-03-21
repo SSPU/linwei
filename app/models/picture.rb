@@ -1,6 +1,6 @@
 class Picture < ActiveRecord::Base
 
-  before_save :get_person_and_job
+  before_save :update_person_and_job
 
   belongs_to :catalog
 
@@ -44,7 +44,11 @@ class Picture < ActiveRecord::Base
       field :job
       field :person
       field :catalog
-      field :asset
+      field :asset do
+        pretty_value do
+          bindings[:view].tag(:img, {:src => bindings[:object].asset.url(:small)})
+        end
+      end
       field :active
       field :position
     end
@@ -56,7 +60,9 @@ class Picture < ActiveRecord::Base
         end
       end
       field :name
-      field :position
+      field :position do
+        default_value 0
+      end
       field :active
       field :asset
     end
@@ -65,7 +71,7 @@ class Picture < ActiveRecord::Base
 # Model methods
   protected
 
-  def get_person_and_job
+  def update_person_and_job
     self.person = self.catalog.person
     self.job    = self.catalog.person.job
   end
