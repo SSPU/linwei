@@ -2,6 +2,8 @@ class Picture < ActiveRecord::Base
 
   before_save :update_person_and_job
 
+  after_save :update_seq
+
   belongs_to :catalog
 
   belongs_to :person
@@ -44,11 +46,7 @@ class Picture < ActiveRecord::Base
       field :job
       field :person
       field :catalog
-      field :asset do
-        pretty_value do
-          bindings[:view].tag(:img, {:src => bindings[:object].asset.url(:small)})
-        end
-      end
+      field :asset
       field :active
       field :position
     end
@@ -68,7 +66,26 @@ class Picture < ActiveRecord::Base
     end
   end
 
-# Model methods
+  # Model functions
+  def prev_pic
+    if self.seq == 0
+      prev_seq = self.max_seq
+    else
+      prev_seq = self.seq - 1
+    end
+    Picture.where(catalog_id: self.catalog_id, seq: prev_seq).take
+  end
+
+  def next_pic
+    if self.seq == max_seq
+      next_seq = 0
+    else
+      next_seq = self.seq + 1
+    end
+    Picture.where(catalog_id: self.catalog_id, seq: next_seq).take
+  end
+
+  # Callback functions and Rails Admin helpers
   protected
 
   def update_person_and_job
@@ -78,6 +95,16 @@ class Picture < ActiveRecord::Base
 
   def catalog_id_enum
     Catalog.all.map {|c| ["#{c.name} - #{c.person.name} - #{c.person.job.name}", c.id]}
+  end
+
+  def update_seq
+    self.update_columns(seq: -1, max_seq: -1) if !self.active
+
+    pics = Picture.where(catalog_id: self.catalog_id,
+                          active: true).order(position: :asc, created_at: :asc)
+    (0...pics.size).select do |i|
+      pics[i].update_columns(seq: i, max_seq: pics.size - 1)
+    end
   end
 
 end

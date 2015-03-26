@@ -3,7 +3,7 @@ class Person < ActiveRecord::Base
 
   belongs_to :job
 
-  has_many :catalogs
+  has_many :catalogs, dependent: :destroy
 
   has_many :pictures
 

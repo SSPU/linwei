@@ -3,7 +3,7 @@ class Catalog < ActiveRecord::Base
 
   belongs_to :person
 
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
 
   validates :person_id, presence: true
 
