@@ -28,13 +28,16 @@
           <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
         </div>
         <% end %>
-
         <% (0...@pics_count).select do |i| %>
         <div class="v_box">
           <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
         </div>
         <% end %>
-
+        <% (0...@pics_count).select do |i| %>
+        <div class="v_box">
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
+        </div>
+        <% end %>
         <% (0...@pics_count).select do |i| %>
         <div class="v_box">
           <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
@@ -42,11 +45,6 @@
         <% end %>
       <% end %>
 
-        <% (0...@pics_count).select do |i| %>
-        <div class="v_box">
-          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
-        </div>
-        <% end %>
     </div>
 
   </div>

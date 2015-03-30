@@ -7,13 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body <%= "id=start" if @index %>>
+<body <%= "id=start" if @is_index %>>
 
   <div id="head">
     <%= link_to( image_tag('esptc_logo.png', id: :logo), root_path ) %>
     <ul class="menu">
       <% @jobs.each do |job| %>
-      <li>
+      <li <%= "class=active" if current_job?(job) %> >
         <%= link_to job.name, job_path(job) %>
       </li>
       <% end %>

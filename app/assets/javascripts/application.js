@@ -12,14 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require imagesloaded.pkgd
 //= require turbolinks
 //= require_tree .
 
 var max_height    = 300;
 var min_row_width = 600;
 var pic_margin    = 4;
-var right_margin  = 5;
+var right_margin  = 10;
 
 function h_origin_size() {
   $(".h_img").each(function(i){
@@ -89,7 +88,16 @@ function h_layout(layout_width) {
   current_width = 0;
 }
 
-$("#h_layout").imagesLoaded(function(){
+//$("#h_layout").imagesLoaded(function(){
+//  var layout_width = $("#h_layout").width();
+//  if( layout_width < min_row_width ) {
+//    layout_width = min_row_width;
+//    $("#h_layout").attr('width', layout_width);
+//  }
+//  h_layout( layout_width );
+//});
+
+$(document).on("page:load", function(){
   var layout_width = $("#h_layout").width();
   if( layout_width < min_row_width ) {
     layout_width = min_row_width;
