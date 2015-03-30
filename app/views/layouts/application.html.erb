@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Linwei</title>
+  <title><%= @title %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<body <%= "id=start" if @index %>>
+
+  <div id="head">
+    <%= link_to( image_tag('esptc_logo.png', id: :logo), root_path ) %>
+    <ul class="menu">
+      <% @jobs.each do |job| %>
+      <li>
+        <%= link_to job.name, job_path(job) %>
+      </li>
+      <% end %>
+      <li id="last">
+        <span>Info / Contact</span>
+      </li>
+    </ul>
+  </div>
 
 <%= yield %>
+
+  <div id="footer">
+    <p>&copy; Copyright ESPTC</p>
+  </div>
 
 </body>
 </html>

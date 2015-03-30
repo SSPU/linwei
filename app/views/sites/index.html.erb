@@ -1,0 +1,53 @@
+<div id="contentContainer">
+  <div id="content">
+
+    <div id="pushcol">
+      <% if @pics_count > 0 %>
+      <%= image_tag('flower.png', id: :star) %>
+      <div id="push">
+        <%= image_tag( @pics[0].asset.url(:w_star) ) %>
+      </div>
+
+      <div id="pushCategory">
+        <p class="intro">
+          <p style="text-align: left;">
+            <span style="font-size: 18px; color: #666699;">Photographer Andreas Lind</span>
+          </p>
+          <p style="text-align: left;">
+            <span style="font-size: 18px; color: #666699;">for Jaguar Classic Black</span>
+          </p>
+        </p>
+      </div>
+      <% end %>
+    </div>
+
+    <div id="v_layout">
+      <% if @pics_count > 1 %>
+        <% (1...@pics_count).select do |i| %>
+        <div class="v_box">
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
+        </div>
+        <% end %>
+
+        <% (0...@pics_count).select do |i| %>
+        <div class="v_box">
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
+        </div>
+        <% end %>
+
+        <% (0...@pics_count).select do |i| %>
+        <div class="v_box">
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
+        </div>
+        <% end %>
+      <% end %>
+
+        <% (0...@pics_count).select do |i| %>
+        <div class="v_box">
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
+        </div>
+        <% end %>
+    </div>
+
+  </div>
+</div>

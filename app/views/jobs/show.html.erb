@@ -1,0 +1,29 @@
+<div id="contentContainer">
+
+  <div class="photographers">
+    <ul id="submenu">
+      <li id="category"><%= @job.name %></li>
+
+      <% @people.each do |person| %>
+      <li>
+        <%= link_to( person.name, person_path(person), class: :name) %>
+      </li>
+      <% end %>
+
+    </ul>
+  </div>
+
+  <div id="content">
+    <h1></h1>
+    <div id="h_layout">
+      <% 10.times do %>
+      <% @pics.each do |pic| %>
+        <div class="h_box">
+          <%= link_to( image_tag(pic.asset.url(:h_medium), class: :h_img), catalog_path(pic.catalog) ) %>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

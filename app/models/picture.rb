@@ -20,9 +20,11 @@ class Picture < ActiveRecord::Base
 
 # Paper Clip
   has_attached_file :asset, styles: {
-    small:  "150x150",
-    medium: "300x300",
-    large:  "600x600"
+    w_small:  "150" ,
+    w_star:   "430" ,
+    w_medium: "300" ,
+    h_medium: "x300",
+    h_large:  "x900"
   }
 
   validates_attachment :asset, presence: true,
