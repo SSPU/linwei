@@ -46,3 +46,7 @@ gem 'paperclip', '~> 4.2'
 
 #Rails_Admin
 gem 'rails_admin'
+
+#Javascript Gems
+gem 'jquery-turbolinks'
+gem 'masonry-rails'

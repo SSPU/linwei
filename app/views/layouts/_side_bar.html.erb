@@ -1,0 +1,22 @@
+  <div id="side_bar">
+    <ul id="submenu">
+      <li id="category"><%= @job.name %></li>
+
+      <% @people.each do |person| %>
+      <% @is_current_person = current_person?(person) %>
+      <li <%= "class=active" if @is_current_person %> >
+        <%= link_to( person.name, person_path(person) ) %>
+        <% if @is_current_person %>
+        <ul>
+          <% @person.catalogs.each do |catalog| %>
+          <li <%= "class=active" if current_catalog?(catalog)%> >
+            <%= link_to( catalog.name, catalog_path(catalog) ) %>
+          </li>
+          <% end %>
+        </ul>
+        <% end %>
+      </li>
+      <% end %>
+
+    </ul>
+  </div>

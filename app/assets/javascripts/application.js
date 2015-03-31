@@ -11,8 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
+//= require masonry/jquery.imagesloaded.min
 //= require_tree .
 
 var max_height    = 300;
@@ -88,22 +90,16 @@ function h_layout(layout_width) {
   current_width = 0;
 }
 
-//$("#h_layout").imagesLoaded(function(){
-//  var layout_width = $("#h_layout").width();
-//  if( layout_width < min_row_width ) {
-//    layout_width = min_row_width;
-//    $("#h_layout").attr('width', layout_width);
-//  }
-//  h_layout( layout_width );
-//});
-
-$(document).on("page:load", function(){
-  var layout_width = $("#h_layout").width();
-  if( layout_width < min_row_width ) {
-    layout_width = min_row_width;
-    $("#h_layout").attr('width', layout_width);
-  }
-  h_layout( layout_width );
+$(document).ready(function(){
+  $("#h_layout").imagesLoaded(function(){
+    console.log("in page:load 2");
+    var layout_width = $("#h_layout").width();
+    if( layout_width < min_row_width ) {
+      layout_width = min_row_width;
+      $("#h_layout").attr('width', layout_width);
+    }
+    h_layout( layout_width );
+  });
 });
 
 $(window).resize(function(){
