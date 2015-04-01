@@ -308,7 +308,8 @@ span#back_btn > span {
 
 #contentContainer {
     position: relative;
-    padding-bottom: 100px;
+    height: 100%;
+    width: 100%;
 }
 
 #content {
@@ -495,7 +496,7 @@ h1#description .styleLink a:hover {
 #footer {
     clear: both;
     font-size: 10px;
-    padding: 20px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
 }
 
 #footer p {
@@ -625,4 +626,39 @@ div#social a.twitter:hover {
   position: relative;
   display: inline-block;
   margin-left: 4px;
+}
+
+#s_layout {
+  display: block;
+}
+
+.s_box {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.s_box img {
+  display: table;
+  margin: 0 auto;
+}
+
+.s_footer {
+  float: none;
+  position: relative;
+  display: block;
+  padding-top: 10px;
+  width: 100%;
+  height: 40px;
+}
+
+.s_footer_inner {
+  display: table;
+  margin: 0 auto;
+}
+
+.s_footer_inner a {
+  padding-left: 10px;
+  padding-right: 10px;
 }

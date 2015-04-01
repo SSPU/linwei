@@ -25,22 +25,22 @@
       <% if @pics_count > 1 %>
         <% (1...@pics_count).select do |i| %>
         <div class="v_box">
-          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), catalog_path(@pics[i].catalog) ) %>
         </div>
         <% end %>
         <% (0...@pics_count).select do |i| %>
         <div class="v_box">
-          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), catalog_path(@pics[i].catalog) ) %>
         </div>
         <% end %>
         <% (0...@pics_count).select do |i| %>
         <div class="v_box">
-          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), catalog_path(@pics[i].catalog) ) %>
         </div>
         <% end %>
         <% (0...@pics_count).select do |i| %>
         <div class="v_box">
-          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), root_path ) %>
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), catalog_path(@pics[i].catalog) ) %>
         </div>
         <% end %>
       <% end %>

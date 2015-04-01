@@ -1,0 +1,24 @@
+<div id="contentContainer">
+  <%= render 'layouts/side_bar' %>
+
+  <div id="content">
+    <div id="s_layout">
+
+      <div class="s_box">
+        <%= image_tag( @picture.asset.url(:h_large), height: 600 ) %>
+      </div>
+
+      <div class="s_footer">
+        <div class= "s_footer_inner">
+        <%= link_to( image_tag('work_prev.png'), picture_path(@picture.prev_pic) ) %>
+        <span><%= @picture.seq + 1 %></span>
+        <span>/</span>
+        <span><%= @picture.max_seq + 1 %></span>
+        <%= link_to( image_tag('work_next.png'), picture_path(@picture.next_pic) ) %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

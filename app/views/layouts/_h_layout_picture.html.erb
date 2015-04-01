@@ -1,0 +1,11 @@
+  <div id="content">
+    <div id="h_layout">
+      <% 10.times do %>
+      <% @pics.each do |pic| %>
+        <div class="h_box">
+          <%= link_to( image_tag(pic.asset.url(:h_medium), class: :h_img), picture_path(pic) ) %>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
