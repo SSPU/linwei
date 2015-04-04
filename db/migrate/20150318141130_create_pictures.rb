@@ -7,6 +7,8 @@ class CreatePictures < ActiveRecord::Migration
       t.string     :name
       t.integer    :position
       t.boolean    :active
+      t.text       :video
+
       t.integer    :seq
       t.integer    :max_seq
 

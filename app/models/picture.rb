@@ -51,6 +51,7 @@ class Picture < ActiveRecord::Base
       field :asset
       field :active
       field :position
+      field :video
     end
 
     edit do
@@ -63,7 +64,10 @@ class Picture < ActiveRecord::Base
       field :position do
         default_value 0
       end
-      field :active
+      field :active do
+        default_value true
+      end
+      field :video
       field :asset
     end
   end

@@ -35,7 +35,9 @@ class Person < ActiveRecord::Base
       field :position do
         default_value 0
       end
-      field :active
+      field :active do
+        default_value true
+      end
     end
   end
 

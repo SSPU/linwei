@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150318141829) do
     t.string   "name"
     t.integer  "position"
     t.boolean  "active"
+    t.text     "video"
     t.integer  "seq"
     t.integer  "max_seq"
     t.datetime "created_at"
