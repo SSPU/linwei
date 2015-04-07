@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150318141829) do
     t.string   "name"
     t.integer  "position"
     t.boolean  "active"
+    t.boolean  "index"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

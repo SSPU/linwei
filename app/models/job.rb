@@ -1,4 +1,5 @@
 class Job < ActiveRecord::Base
+  before_save :set_index_for_others
 
   has_many :people, dependent: :destroy
 
@@ -17,6 +18,7 @@ class Job < ActiveRecord::Base
       field :name
       field :position
       field :active
+      field :index
     end
 
     edit do
@@ -27,6 +29,17 @@ class Job < ActiveRecord::Base
       field :active do
         default_value true
       end
+      field :index do
+        default_value false
+      end
+    end
+  end
+
+  protected
+
+  def set_index_for_others
+    Job.all.each do |job|
+      job.update_columns(index: false)
     end
   end
 
