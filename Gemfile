@@ -50,3 +50,6 @@ gem 'rails_admin'
 #Javascript Gems
 gem 'jquery-turbolinks'
 gem 'masonry-rails'
+
+#Wysihtml5 editor
+gem 'bootstrap-wysihtml5-rails', '> 0.3.1.24'

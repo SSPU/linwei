@@ -15,4 +15,9 @@ module ApplicationHelper
     @catalog.id == catalog.id ? true : false
   end
 
+  def current_info?(info)
+    return false if !@info
+    @info.id == info.id ? true : false
+  end
+
 end

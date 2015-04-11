@@ -17,8 +17,8 @@
         <%= link_to job.name, job_path(job) %>
       </li>
       <% end %>
-      <li id="last">
-        <span>Info / Contact</span>
+      <li id="last" <%= "class=active" if @is_info %>>
+        <%= link_to 'Info / Contact', infomation_path(1) %>
       </li>
     </ul>
   </div>

@@ -1,0 +1,22 @@
+<div id="contentContainer">
+  <div id="side_bar">
+    <ul id="submenu">
+      <li id="category"><%= "Informations" %></li>
+
+      <% @infos.each do |i| %>
+      <% @is_current_info = current_info?(i) %>
+      <li <%= "class=active" if @is_current_info %> >
+        <%= link_to( i.name, infomation_path(i) ) %>
+      </li>
+      <% end %>
+
+    </ul>
+  </div>
+
+  <div id="content">
+    <% if @info %>
+      <%= @info.content.html_safe %>
+    <% end %>
+  </div>
+
+</div>
