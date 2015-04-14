@@ -5,7 +5,7 @@
       <% if @pics_count > 0 %>
       <%= image_tag('flower.png', id: :star) %>
       <div id="push">
-        <%= image_tag( @pics[0].asset.url(:w_star) ) %>
+        <%= link_to( image_tag( @pics[0].asset.url(:w_star)), picture_path(@pics[0]) ) %>
       </div>
 
 <!--
@@ -27,7 +27,7 @@
       <% if @pics_count > 1 %>
         <% (1...@pics_count).select do |i| %>
         <div class="v_box">
-          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), catalog_path(@pics[i].catalog) ) %>
+          <%= link_to( image_tag(@pics[i].asset.url(:w_medium)), picture_path(@pics[i]) ) %>
         </div>
         <% end %>
       <% end %>

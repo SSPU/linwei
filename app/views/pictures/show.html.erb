@@ -8,9 +8,13 @@
         <div class="s_center_img">
           <div class="s_wrap_img">
             <%= image_tag( @picture.asset.url(:h_large), height: 600 ) %>
+
+            <% if !@picture.video.blank? %>
             <div class="s_video_tag">
-              <%= link_to 'Video', "http://v.youku.com/v_show/id_XODY4MTA1OTc2.html", target: '_blank' %>
+              <%= link_to 'Video', @picture.video, target: '_blank' %>
             </div>
+            <% end %>
+
           </div>
         </div>
       </div>
