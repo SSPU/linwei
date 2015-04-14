@@ -20,4 +20,8 @@ module ApplicationHelper
     @info.id == info.id ? true : false
   end
 
+  def first_info
+    Infomation.first ? Infomation.first.id : 1;
+  end
+
 end
