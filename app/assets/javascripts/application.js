@@ -90,6 +90,14 @@ function h_layout(layout_width) {
   current_width = 0;
 }
 
+function s_layout() {
+  var cal_height = $(window).height() - 200;
+  if( cal_height > 900 ) {
+    cal_height = 900;
+  }
+  $("#s_img").attr('height', cal_height);
+}
+
 $(document).ready(function(){
   $("#h_layout").imagesLoaded(function(){
     console.log("in page:load 2");
@@ -100,6 +108,8 @@ $(document).ready(function(){
     }
     h_layout( layout_width );
   });
+
+  s_layout();
 });
 
 $(window).resize(function(){
@@ -114,4 +124,8 @@ $(window).resize(function(){
     h_layout( layout_width );
     h_delete_old_row();
   }, 500, "v_layout");
+
+  waitForFinalEvent(function(){
+    s_layout();
+  }, 500, "s_img");
 });

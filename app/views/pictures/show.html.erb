@@ -7,7 +7,7 @@
       <div class="s_box">
         <div class="s_center_img">
           <div class="s_wrap_img">
-            <%= image_tag( @picture.asset.url(:h_large), height: 600 ) %>
+            <%= image_tag( @picture.asset.url(:h_large), id: 's_img' ) %>
 
             <% if !@picture.video.blank? %>
             <div class="s_video_tag">
