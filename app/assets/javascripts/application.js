@@ -100,7 +100,6 @@ function s_layout() {
 
 $(document).ready(function(){
   $("#h_layout").imagesLoaded(function(){
-    console.log("in page:load 2");
     var layout_width = $("#h_layout").width();
     if( layout_width < min_row_width ) {
       layout_width = min_row_width;
