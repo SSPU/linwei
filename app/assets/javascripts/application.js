@@ -96,6 +96,13 @@ function s_layout() {
     cal_height = 900;
   }
   $("#s_img").attr('height', cal_height);
+
+  var max_width = $(window).width() - 500;
+  var cal_width = cal_height * 16 / 9;
+  if( cal_width > max_width ){
+    cal_width = max_width;
+  }
+  $(".s_wrap_img iframe").attr({'height':cal_height, 'width':cal_width});
 }
 
 $(document).ready(function(){

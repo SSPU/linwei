@@ -7,14 +7,11 @@
       <div class="s_box">
         <div class="s_center_img">
           <div class="s_wrap_img">
-            <%= image_tag( @picture.asset.url(:h_large), id: 's_img' ) %>
-
-            <% if !@picture.video.blank? %>
-            <div class="s_video_tag">
-              <%= link_to 'Video', @picture.video, target: '_blank' %>
-            </div>
+            <% if @picture.video.blank? %>
+              <%= image_tag( @picture.asset.url(:h_large), id: 's_img' ) %>
+            <% else %>
+              <%= @picture.video.html_safe %>
             <% end %>
-
           </div>
         </div>
       </div>
