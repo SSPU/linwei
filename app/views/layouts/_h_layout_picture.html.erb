@@ -5,7 +5,7 @@
           <%= link_to( image_tag(pic.asset.url(:h_medium), class: :h_img), picture_path(pic) ) %>
           <% if !pic.video.blank? %>
             <div class="h_video_tag">
-            <%= link_to 'Video', pic.video, target: '_blank' %>
+              <p>Video</p>
             </div>
           <% end %>
         </div>
